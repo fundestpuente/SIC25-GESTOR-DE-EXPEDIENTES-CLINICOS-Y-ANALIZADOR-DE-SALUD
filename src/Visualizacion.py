@@ -43,15 +43,6 @@ def visualizar_datos(df):
     plt.ylabel('')
     plt.show()
 
-    
-
-
-  
-  
-
-
-
-    print("\nFin de las visualizaciones.")
 
 
 
@@ -108,7 +99,7 @@ def analizar_poblacion_diabetica(df):
     df_diabetes = df[df['diabetes'] == 1].copy()
 
 
-    """Diabetes por Sexo y Tipo de Sangre"""
+    """Diabetes por sexo y tipo de sangre"""
 
     # Configuración del gráfico
     plt.figure(figsize=(12, 7))
@@ -116,7 +107,7 @@ def analizar_poblacion_diabetica(df):
     # Valores color
 
     sex_palette = {'Male': 'skyblue', 'Female': 'lightpink', 'Other': 'lightgreen'}
-    # Orden explícito de los tipos de sangre
+    # Orden para los tipos de sangre
     blood_order = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
 
     ax1 = sns.countplot(
