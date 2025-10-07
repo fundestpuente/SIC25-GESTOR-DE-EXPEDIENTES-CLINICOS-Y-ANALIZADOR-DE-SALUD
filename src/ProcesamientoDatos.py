@@ -124,12 +124,14 @@ def evaluar_riesgo_coronario(paciente):
         factores_encontrados.append("Diabetes")
     
     # Nivel de riesgo
-    riesgo = "Bajo"
+    
     if factores >= 3:
         riesgo = "Alto"
     elif factores == 2:
         riesgo = "Moderado"
-    
+    else:
+        riesgo = "Bajo"
+
     descripcion = f"Riesgo de Enfermedad Coronaria: {riesgo} ({factores}/4 factores: {', '.join(factores_encontrados)})"
 
     # Agrega una recomendación acorde
