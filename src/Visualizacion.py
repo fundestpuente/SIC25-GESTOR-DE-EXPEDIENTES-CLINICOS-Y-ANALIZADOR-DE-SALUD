@@ -42,7 +42,7 @@ def visualizar_datos(df):
     plt.ylabel('')
     plt.show()
 
-
+    
 
 
   
@@ -102,17 +102,16 @@ def grafico_riesgo_combinado(df):
     plt.tight_layout()
     plt.show()
 
-"""def mapa_hipertension (df):
+def mapa_hipertension (df):
 
-    Genera un mapa de calor clínico de presión arterial, 
+    """ Genera un mapa de calor clínico de presión arterial, 
     permite visualizar de forma grafica que nivel de Hipertension
-    se encuentran la mayoria de pacientes atendidos 
-
-
+    se encuentran la mayoria de pacientes atendidos """
+   
     sistolica = np.arange(90, 221, 1)
     diastolica = np.arange(40, 141, 1)
     sist, diast = np.meshgrid(sist, diast)
-    categoria = np.zeros_like(S, dtype=int)
+    categoria = np.zeros_like(sist, dtype=int)
 
     crisis_hipertensiva = (sist > 180) |(diast > 180) 
     categoria[crisis_hipertensiva] = 4
@@ -143,7 +142,7 @@ def grafico_riesgo_combinado(df):
     # Ajustar el diseño y mostrar
     plt.tight_layout()
     plt.show()
-"""
+
 
 
 
