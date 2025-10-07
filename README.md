@@ -2,14 +2,14 @@
 
 **Curso:** Samsung Innovation Campus – Módulo de Python (Ecuador 2025)  
 **Seccion:** <ecuador03>  
-**Carpeta:** `/<ecuador03>/<Gestor de expedientes clínicos y analizador de salud>`
+**Carpeta:** `/SIC25-GESTOR-DE-EXPEDIENTES-CLINICOS-Y-ANALISIS-DE-SALUD`
 
 ---
 
 ## 👥 Integrantes del Grupo
 
-- Jaime Andrés Estrada
-- William Denilson Vera
+- Jaime Estrada
+- William Vera
 - Daniel Heredia
 - Jhuliet Conza
 - John Vera
@@ -18,11 +18,7 @@
 
 ## 📝 Descripción del Proyecto
 
-Breve descripción clara del proyecto (2–5 líneas). Indica:
-
-- ¿Qué problema resuelve?
-- ¿Cuál es el objetivo principal?
-- ¿Quiénes son los usuarios o beneficiarios?
+Este proyecto es un **sistema de alerta temprana** para profesionales de la salud que transforma datos clínicos básicos en prediagnósticos automáticos. Su objetivo es combatir la **detección tardía de enfermedades crónicas** (cardíacas, metabólicas, renales), permitiendo que los **pacientes** de alto riesgo reciban una atención más proactiva y preventiva.
 
 **Ejemplo:**
 
@@ -42,38 +38,26 @@ Breve descripción clara del proyecto (2–5 líneas). Indica:
 1. Clonar el repositorio (o asegurarse de estar en la carpeta del proyecto):
 
    ```bash
-   git clone <URL_DEL_REPO>
-   cd <ruta/al/proyecto>   # ej: cd ecuador03/proyecto-01-nombre
-   ```
+   git clone https://github.com/fundestpuente/SIC25-GESTOR-DE-EXPEDIENTES-CLINICOS-Y-ANALIZADOR-DE-SALUD.git
+   
 
 2. Actualizar pip e instalar dependencias:
 
    ```bash
-   pip install --upgrade pip
-   pip install -r requirements.txt
+   pip install pandas
+   pip install matplotlib
+   pip install seaborn
+
    ```
 
 3. Ejecutar la aplicación (ejemplo):
 
-   ```bash
-   python main.py
+   a. En primer lugar se abre el archivo "main.ipynb".
+   b. Se ejecuta en orden.
+   c. Una vez ejecutado correctamente aparecera un menu seleccionar la opcion requerida e ingresar los valores necesarios que se soliciten'
    ```
 
-   O, si es una aplicación web:
-
-   ```bash
-   uvicorn app.main:app --reload
-   ```
-
-   Reemplaza los comandos anteriores por los específicos de tu proyecto.
-
-4. Ejecutar pruebas (si aplica):
-   ```bash
-   pytest
-   ```
-
----
-
+  
 ## 📂 Estructura del Código (sugerida)
 
 ```
@@ -83,8 +67,11 @@ proyecto-xx-nombre/
 ├── README.md             # Este archivo (personalizar)
 ├── requirements.txt      # Dependencias del proyecto
 ├── src/                  # Código fuente del proyecto
-│   ├── module1.py
-│   └── module2.py
+│   ├── grafico_1.ipynb
+|   ├── grafico_2.ipynb
+|   ├── ObtencionDatos.ipynb
+│   └── ProcesamientoDatos.py
+|   └── Visualización.py
 ├── data/                 # Datos de ejemplo
 ├── docs/                 # Documentación adicional (opcional)
 └── .gitignore
@@ -97,8 +84,8 @@ proyecto-xx-nombre/
 ## ✅ Herramientas Implementadas
 
 - **Lenguaje:** Python 3.x
-- **Librerías principales:** `<pandas, numpy, flask, fastapi, matplotlib, etc.>` (lista → reemplazar)
-- **Otras herramientas:** `<Docker, GitHub Actions (CI), pytest, etc.>` (lista → reemplazar)
+- **Librerías principales:** `<pandas, matplotlib, seaborn.>` 
+- **Otras herramientas:** `<Docker, GitHub Actions (CI), pytest, etc.>` 
 
 ---
 

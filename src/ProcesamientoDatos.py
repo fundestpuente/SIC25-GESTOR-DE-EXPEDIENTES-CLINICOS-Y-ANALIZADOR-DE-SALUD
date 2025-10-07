@@ -1,7 +1,5 @@
 import pandas as pd
 
-# Leer dataset local
-import pandas as pd
 
 def cargar_y_preparar_datos(ruta):
     try:
