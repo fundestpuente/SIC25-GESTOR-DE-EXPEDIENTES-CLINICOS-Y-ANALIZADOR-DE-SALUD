@@ -224,7 +224,40 @@ def mapa_hipertension (df):
     plt.show()
 
 
+def grafica(df):
+    informacion = []
 
+    for _, fila in df.iterrows():
+        edad = fila["age"]
+        valor_colesterol = fila["cholesterol"]
+        valor_presion = fila["hypertension"]
+        valor_systolic = fila["systolic_bp"]
+        valor_diabetes = fila["diabetes"]
+
+        factor = 0
+
+        if edad > 55:
+            factor += 1
+        if valor_colesterol > 200:
+            factor += 1
+        if valor_presion == 1 or valor_systolic >= 130:
+            factor += 1
+        if valor_diabetes == 1:
+            factor += 1
+
+        informacion.append({"Edad": edad, "Factores_Riesgo": factor})
+
+    df_datos = pd.DataFrame(informacion)
+
+    plt.figure(figsize=(8,5))
+    plt.scatter(df_datos["Edad"], df_datos["Factores_Riesgo"], color="royalblue")
+    plt.title("Relación entre Edad y Factores de Riesgo Coronario")
+    plt.xlabel("Edad")
+    plt.ylabel("Factores de Riesgo")
+    plt.grid(True, linestyle="--", alpha=0.5)
+    plt.show()
+
+  
 
 
 
