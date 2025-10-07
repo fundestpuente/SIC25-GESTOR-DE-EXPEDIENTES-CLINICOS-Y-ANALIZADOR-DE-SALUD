@@ -37,7 +37,7 @@ def visualizar_datos(df):
     plt.figure(figsize=(8, 8))
     counts = df['diabetes'].value_counts()
     labels = {1: 'Con Diabetes', 0: 'Sin Diabetes'}
-    plt.pie(counts, labels=[labels[i] for i in counts.index], autopct='%1.1f%%', startangle=90, colors=['#ff6666','#99ff99'])
+    plt.pie(counts, labels=[labels[i] for i in counts.index], autopct='%1.1f%%', startangle=90, colors=["#86ed86","#f96060"])
     plt.title('Proporción de Pacientes con Diagnóstico de Diabetes', fontsize=16)
     plt.ylabel('')
     plt.show()
