@@ -110,7 +110,7 @@ def mapa_hipertension (df):
    
     sistolica = np.arange(90, 221, 1)
     diastolica = np.arange(40, 141, 1)
-    sist, diast = np.meshgrid(sist, diast)
+    sist, diast = np.meshgrid(sistolica, diastolica)
     categoria = np.zeros_like(sist, dtype=int)
 
     crisis_hipertensiva = (sist > 180) |(diast > 180) 
