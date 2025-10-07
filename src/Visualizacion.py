@@ -1,6 +1,9 @@
 # Contenido para: src/visualizacion.py
 
 import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+import matplotlib.patches as mpatches
+import numpy as np
 import seaborn as sns
 
 def visualizar_datos(df):
@@ -98,3 +101,54 @@ def grafico_riesgo_combinado(df):
     plt.legend(title="Grupos de riesgo", loc="upper left", bbox_to_anchor=(1, 0, 0.5, 1))
     plt.tight_layout()
     plt.show()
+
+"""def mapa_hipertension (df):
+
+    Genera un mapa de calor clínico de presión arterial, 
+    permite visualizar de forma grafica que nivel de Hipertension
+    se encuentran la mayoria de pacientes atendidos 
+
+
+    sistolica = np.arange(90, 221, 1)
+    diastolica = np.arange(40, 141, 1)
+    sist, diast = np.meshgrid(sist, diast)
+    categoria = np.zeros_like(S, dtype=int)
+
+    crisis_hipertensiva = (sist > 180) |(diast > 180) 
+    categoria[crisis_hipertensiva] = 4
+
+    hipertension_2 = ((sist >= 140) | (diast >= 90)) & (~crisis_hipertensiva)
+    categoria[hipertension_2] = 3
+
+    hipertension_1 = (((sist >= 130) & (sist <= 139)) | ((diast >= 80) & (diast <= 89))) & (~crisis_hipertensiva) & (~hipertension_2)
+    categoria[hipertension_1] = 2
+
+    presion_elev = ((sist >= 120) & (sist <= 129) & (diast < 80)) & (~crisis_hipertensiva) & (~hipertension_2) & (~hipertension_1)
+    categoria[presion_elev] = 1
+
+    fig, ax = plt.subplots(figsize=(8,6))
+
+    grafica= ax.imshow(categoria, origin='lower',extent=(sistolica.min(), sistolica.max(), diastolica.min(), diastolica.max()),interpolation='nearest', aspect='auto')
+
+    ax.set_xlabel('Sistólica (mmHg)')
+    ax.set_ylabel('Diastólica (mmHg)')
+    ax.set_title('Mapa de calor de presión arterial con pacientes')
+
+    cbar = plt.colorbar(grafica, ax=ax, ticks=[0,1,2,3,4])
+    cbar.ax.set_yticklabels(['Normal', 'Elevada', 'Hipertensión G1', 'Hipertensión G2', 'Crisis'])
+    plt.scatter(df['Systolic'], df['Diastolic'],color='black', alpha=0.5, s=10, label='Pacientes')
+    
+    plt.legend()
+
+    # Ajustar el diseño y mostrar
+    plt.tight_layout()
+    plt.show()
+"""
+
+
+
+
+
+
+
+
