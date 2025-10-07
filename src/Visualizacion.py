@@ -135,7 +135,8 @@ def mapa_hipertension (df):
 
     cbar = plt.colorbar(grafica, ax=ax, ticks=[0,1,2,3,4])
     cbar.ax.set_yticklabels(['Normal', 'Elevada', 'Hipertensión G1', 'Hipertensión G2', 'Crisis'])
-    plt.scatter(df['systolic_bp'], df['diastolic_bp'],color='black', alpha=0.5, s=10, label='Pacientes')
+    muestra = df.sample(200, random_state=42)
+    plt.scatter(muestra['systolic_bp'], muestra['diastolic_bp'],color='red', alpha=0.5, s=10, label='Pacientes')
     
     plt.legend()
 
