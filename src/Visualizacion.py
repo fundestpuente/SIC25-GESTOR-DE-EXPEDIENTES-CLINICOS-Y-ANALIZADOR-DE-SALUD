@@ -5,6 +5,7 @@ import matplotlib.colors as mcolors
 import matplotlib.patches as mpatches
 import numpy as np
 import seaborn as sns
+import pandas as pd
 
 def visualizar_datos(df):
     """
@@ -101,6 +102,84 @@ def grafico_riesgo_combinado(df):
     plt.legend(title="Grupos de riesgo", loc="upper left", bbox_to_anchor=(1, 0, 0.5, 1))
     plt.tight_layout()
     plt.show()
+
+def analizar_poblacion_diabetica(df):
+    # Filtrar solo pacientes con diabetes
+    df_diabetes = df[df['diabetes'] == 1].copy()
+
+
+    """Diabetes por Sexo y Tipo de Sangre"""
+
+    # Configuración del gráfico
+    plt.figure(figsize=(12, 7))
+    sns.set_style("whitegrid")
+    # Valores color
+
+    sex_palette = {'Male': 'skyblue', 'Female': 'lightpink', 'Other': 'lightgreen'}
+    # Orden explícito de los tipos de sangre
+    blood_order = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+
+    ax1 = sns.countplot(
+        data=df_diabetes,
+        x='Blood Type',
+        hue='sex',
+        palette=sex_palette,
+        order=blood_order
+    )
+
+    for p in ax1.patches:
+        height = p.get_height()
+        if height > 0:
+            ax1.annotate(
+                str(int(height)),
+                (p.get_x() + p.get_width() / 2., height),
+                ha='center',
+                va='bottom',
+                fontsize=9
+            )
+
+    plt.title("Pacientes con diabetes por sexo y tipo de sangre", fontsize=16, weight='bold')
+    plt.xlabel("Tipo de sangre", fontsize=12)
+    plt.ylabel("Cantidad de pacientes", fontsize=12)
+    plt.legend(title="Sexo", labels=["Hombre", "Mujer", "Otro"], loc='upper right')
+    plt.tight_layout()
+    plt.show()
+
+    print("Gráfico: Diabetes por grupo etario y sexo...")
+
+    # Clasificar por grupo etario
+    bins_edad = [0, 17, 39, 64, 100]
+    labels_edad = ["Niño/Adolescente (0-17)", "Adulto joven (18-39)", "Adulto (40-64)", "Adulto mayor (65+)"]
+    df_diabetes['Grupo_Etario'] = pd.cut(df_diabetes['age'], bins=bins_edad, labels=labels_edad, right=True)
+
+    plt.figure(figsize=(10, 7))
+    sns.set_style("whitegrid")
+
+    ax2 = sns.countplot(
+        data=df_diabetes,
+        x='Grupo_Etario',
+        hue='sex',
+        palette={'Male': 'skyblue', 'Female': 'lightpink', 'Other': 'lightgreen'}
+    )
+
+    for p in ax2.patches:
+        height = p.get_height()
+        if height > 0:
+            ax2.annotate(
+                str(int(height)), 
+                (p.get_x() + p.get_width() / 2., height), 
+                ha='center', va='bottom', fontsize=9
+            )
+
+    plt.title("Pacientes con diabetes por grupo etario y sexo", fontsize=16, weight='bold')
+    plt.xlabel("Grupo etario", fontsize=12)
+    plt.ylabel("Cantidad de pacientes", fontsize=12)
+    plt.legend(title="Sexo", labels=["Hombre", "Mujer", "Otro"], loc='upper right')
+    plt.xticks(rotation=10)
+    plt.tight_layout()
+    plt.show()
+    
+    print("Análisis de población diabética finalizado.")
 
 def mapa_hipertension (df):
 
