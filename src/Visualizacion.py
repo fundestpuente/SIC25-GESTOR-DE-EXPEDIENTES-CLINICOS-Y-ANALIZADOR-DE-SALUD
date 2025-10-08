@@ -22,6 +22,16 @@ def visualizar_datos(df):
     plt.xlabel('Edad', fontsize=12)
     plt.ylabel('Cantidad de Pacientes', fontsize=12)
     plt.tight_layout()
+
+    # Analisis de la gráfica
+    descripcion = (
+        "Análisis: La mayoría de los pacientes están entre 40 y 75 años, con pico en los 55-60. Pocos son jóvenes o muy ancianos."
+        "Esto sugiere que la atención debe enfocarse en enfermedades propias de la edad adulta avanzada"
+        "como hipertensión, diabetes o artrosis."
+    )
+    plt.figtext(0.5, -0.05, descripcion, wrap=True, horizontalalignment='center', fontsize=10)
+    
+    # Mostramos el gráfico
     plt.show() 
 
     #Gráfico 2: Conteo de Pacientes por Categoría de IMC 
@@ -31,16 +41,33 @@ def visualizar_datos(df):
     plt.xlabel('Cantidad de Pacientes', fontsize=12)
     plt.ylabel('Categoría de IMC', fontsize=12)
     plt.tight_layout()
+
+    # Analisis de la gráfica
+    descripcion = (
+        "Análisis: Podemos ver que predominan pacientes con sobrepeso y obesidad, seguidos por peso normal. Muy pocos tienen bajo peso."
+        "Esto indica necesidad urgente de programas nutricionales y de actividad física para prevenir complicaciones metabólicas y cardiovasculares."
+    )
+    plt.figtext(0.5, -0.05, descripcion, wrap=True, horizontalalignment='center', fontsize=10)
+    
+    # Mostramos el gráfico    
     plt.show() 
 
     # Gráfico 3  Proporción de Pacientes con Diabetes
-  
     plt.figure(figsize=(8, 8))
     counts = df['diabetes'].value_counts()
     labels = {1: 'Con Diabetes', 0: 'Sin Diabetes'}
     plt.pie(counts, labels=[labels[i] for i in counts.index], autopct='%1.1f%%', startangle=90, colors=["#86ed86","#f96060"])
     plt.title('Proporción de Pacientes con Diagnóstico de Diabetes', fontsize=16)
     plt.ylabel('')
+
+    # Analisis de la gráfica
+    descripcion = (
+        "Análisis: Solo el (11.9%) de los pacientes tiene diagnóstico de diabetes, mientras que la gran mayoría (88.1%) no lo tiene."
+        "Esto refleja una población con bajo porcentaje de casos confirmados, pero aún así requiere vigilancia activa para detección temprana en grupos de riesgo."
+    )
+    plt.figtext(0.5, -0.05, descripcion, wrap=True, horizontalalignment='center', fontsize=10)
+    
+    # Mostramos el gráfico  
     plt.show()
 
 
@@ -92,6 +119,16 @@ def grafico_riesgo_combinado(df):
     plt.axis('equal')  
     plt.legend(title="Grupos de riesgo", loc="upper left", bbox_to_anchor=(1, 0, 0.5, 1))
     plt.tight_layout()
+
+    # Analisis de la gráfica
+    descripcion = (
+        "Análisis: Más de la mitad de los pacientes no tiene ni diabetes ni hipertensión. Un cuarto solo tiene hipertensión"
+        "menos del 10% tiene solo diabetes y solo el 3.6% tiene ambas condiciones, representando el grupo de mayor riesgo clínico"
+        "que debería priorizarse en seguimiento y manejo intensivo de sus casos."
+    )
+    plt.figtext(0.5, -0.05, descripcion, wrap=True, horizontalalignment='center', fontsize=10)
+    
+    # Mostramos el gráfico  
     plt.show()
 
 def analizar_poblacion_diabetica(df):
@@ -134,10 +171,20 @@ def analizar_poblacion_diabetica(df):
     plt.ylabel("Cantidad de pacientes", fontsize=12)
     plt.legend(title="Sexo", labels=["Hombre", "Mujer", "Otro"], loc='upper right')
     plt.tight_layout()
+
+    # Analisis de la gráfica
+    descripcion = (
+        "Análisis: Los hombres tienen más casos de diabetes que las mujeres en la mayoría de tipos sanguíneos."
+        "Las personas que no se identificaron como ninguno de los dos géneros, tienen tipo de sangre A+"
+        "Se recomienda reforzar la detección y manejo de diabetes en mujeres con tipo de sangre AB+ y O-."
+    )
+    plt.figtext(0.5, -0.05, descripcion, wrap=True, horizontalalignment='center', fontsize=10)
+    
+    # Mostramos el gráfico  
     plt.show()
 
-    print("Gráfico: Diabetes por grupo etario y sexo...")
 
+    print("Gráfico: Diabetes por grupo etario y sexo...")
     # Clasificar por grupo etario
     bins_edad = [0, 17, 39, 64, 100]
     labels_edad = ["Niño/Adolescente (0-17)", "Adulto joven (18-39)", "Adulto (40-64)", "Adulto mayor (65+)"]
@@ -168,6 +215,16 @@ def analizar_poblacion_diabetica(df):
     plt.legend(title="Sexo", labels=["Hombre", "Mujer", "Otro"], loc='upper right')
     plt.xticks(rotation=10)
     plt.tight_layout()
+    
+    # Analisis de la gráfica
+    descripcion = (
+        "Análisis: La diabetes afecta principalmente a adultos de entre 40-64 años, con más hombres que mujeres en ese rango."
+        "En adultos mayores (65+), las cifras bajan ligeramente. Pocos niños o jóvenes tienen diagnóstico."
+        "Por lo que se recomienda priorizar control en adultos, especialmente hombres entre 40 y 64 años."
+    )
+    plt.figtext(0.5, -0.05, descripcion, wrap=True, horizontalalignment='center', fontsize=10)
+    
+    # Mostramos el gráfico
     plt.show()
     
     print("Análisis de población diabética finalizado.")
@@ -177,7 +234,7 @@ def mapa_hipertension (df):
     """ Genera un mapa de calor clínico de presión arterial, 
     permite visualizar de forma grafica que nivel de Hipertension
     se encuentran la mayoria de pacientes atendidos """
-   
+
     sistolica = np.arange(90, 221, 1)
     diastolica = np.arange(40, 141, 1)
     sist, diast = np.meshgrid(sistolica, diastolica)
@@ -210,8 +267,17 @@ def mapa_hipertension (df):
     
     plt.legend()
 
-    # Ajustar el diseño y mostrar
+    # Ajustar el diseño
     plt.tight_layout()
+
+    # Analisis de la gráfica
+    descripcion = (
+        "Análisis: La mayoría de los pacientes tienen presión alta, muchos en etapas graves o crisis. Pocos están en rango normal."
+        "Requiere intervención inmediata en control farmacológico, educación y seguimiento cercano para evitar eventos cardiovasculares."
+    )
+    plt.figtext(0.5, -0.05, descripcion, wrap=True, horizontalalignment='center', fontsize=10)
+    
+    # Mostramos el gráfico 
     plt.show()
 
 
@@ -247,11 +313,3 @@ def grafica(df):
     plt.ylabel("Factores de Riesgo")
     plt.grid(True, linestyle="--", alpha=0.5)
     plt.show()
-
-  
-
-
-
-
-
-
